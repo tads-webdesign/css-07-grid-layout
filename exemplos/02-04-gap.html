@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gap - Grid Layout - Exemplos de WebDesign</title>
+    <style>
+        :root {
+            --bg: #f7f7f9;
+            --card: #ffffff;
+            --text: #2c3e50;
+            --muted: #6b7280;
+            --primary: #667eea;
+            --primary-2: #764ba2;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 1.6rem;
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+        }
+
+        section h2 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .badge {
+            color: var(--muted);
+            font-size: .85rem;
+            margin-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: #fafafa;
+            border: 1px dashed #e5e7eb;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            text-align: center;
+            padding: 16px 8px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Exemplo 1: gap uniforme 20px */
+        .ex1 {
+            gap: 20px;
+        }
+
+        /* Exemplo 2: gap linha 30px / coluna 15px */
+        .ex2 {
+            gap: 30px 15px;
+        }
+
+        /* Exemplo 3: apenas gap vertical (row-gap) 25px */
+        .ex3 {
+            row-gap: 25px;
+            column-gap: 0;
+        }
+
+        .code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: .75rem;
+            background: #f3f4f6;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        footer.page-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: .75rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>gap - Grid Layout - Exemplos de WebDesign</h1>
+        <p class="lead">Demonstrações dos exemplos de espaçamento da seção 2.4.</p>
+    </header>
+
+    <section>
+        <h2>Exemplo 1: Gap uniforme</h2>
+        <div class="badge">gap: 20px;</div>
+        <div class="grid ex1">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+        </div>
+        <pre class="code">.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* 20px entre linhas e colunas */
+}</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 2: Gaps diferentes (linha x coluna)</h2>
+        <div class="badge">gap: 30px 15px;</div>
+        <div class="grid ex2">
+            <div class="item">A</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+            <div class="item">D</div>
+            <div class="item">E</div>
+            <div class="item">F</div>
+            <div class="item">G</div>
+            <div class="item">H</div>
+            <div class="item">I</div>
+        </div>
+        <pre class="code">.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 15px; /* 30px linhas, 15px colunas */
+}</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 3: Apenas gap vertical</h2>
+        <div class="badge">row-gap: 25px; column-gap: 0;</div>
+        <div class="grid ex3">
+            <div class="item">I</div>
+            <div class="item">II</div>
+            <div class="item">III</div>
+            <div class="item">IV</div>
+            <div class="item">V</div>
+            <div class="item">VI</div>
+            <div class="item">VII</div>
+            <div class="item">VIII</div>
+            <div class="item">IX</div>
+        </div>
+        <pre class="code">.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 25px;
+  column-gap: 0;
+}</pre>
+    </section>
+
+</body>
+
+</html>

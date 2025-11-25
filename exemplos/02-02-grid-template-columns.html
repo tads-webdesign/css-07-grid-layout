@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid-template-columns - Grid Layout - Exemplos de WebDesign</title>
+    <style>
+        :root {
+            --bg: #f7f7f9;
+            --card: #ffffff;
+            --text: #2c3e50;
+            --muted: #6b7280;
+            --primary: #667eea;
+            --primary-2: #764ba2;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 1.6rem;
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        section h2 {
+            font-size: 1.1rem;
+            margin: 0 0 12px;
+        }
+
+        .badge {
+            color: var(--muted);
+            font-size: .9rem;
+            margin-bottom: 8px;
+        }
+
+        .container {
+            display: grid;
+            gap: 10px;
+            background: #fafafa;
+            border: 1px dashed #e5e7eb;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            text-align: center;
+            padding: 16px 10px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .ex1 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .ex2 {
+            grid-template-columns: 200px 1fr 2fr;
+        }
+
+        .ex3 {
+            grid-template-columns: 250px 1fr;
+        }
+
+        .ex4 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: .9rem;
+            background: #f3f4f6;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+            overflow: auto;
+            white-space: pre;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>grid-template-columns — Grid Layout - Exemplos de WebDesign</h1>
+        <p class="lead">Demonstrações práticas dos exemplos descritos no README.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Exemplo 1: Três colunas iguais</h2>
+            <div class="badge">grid-template-columns: repeat(3, 1fr)</div>
+            <div class="container ex1">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+            </div>
+            <pre
+                class="code">.container { display: grid; grid-template-columns: 1fr 1fr 1fr; /* ou */ grid-template-columns: repeat(3, 1fr); }</pre>
+        </section>
+
+        <section>
+            <h2>Exemplo 2: Colunas com tamanhos diferentes</h2>
+            <div class="badge">grid-template-columns: 200px 1fr 2fr</div>
+            <div class="container ex2">
+                <div class="item">A (200px)</div>
+                <div class="item">B (1fr)</div>
+                <div class="item">C (2fr)</div>
+                <div class="item">D</div>
+                <div class="item">E</div>
+                <div class="item">F</div>
+            </div>
+            <pre class="code">.container { display: grid; grid-template-columns: 200px 1fr 2fr; }</pre>
+        </section>
+
+        <section>
+            <h2>Exemplo 3: Layout sidebar + conteúdo</h2>
+            <div class="badge">grid-template-columns: 250px 1fr</div>
+            <div class="container ex3">
+                <div class="item">Sidebar</div>
+                <div class="item">Conteúdo</div>
+                <div class="item">Sidebar</div>
+                <div class="item">Conteúdo</div>
+            </div>
+            <pre class="code">.container { display: grid; grid-template-columns: 250px 1fr; }</pre>
+        </section>
+
+        <section>
+            <h2>Exemplo 4: Grid responsivo automático</h2>
+            <div class="badge">grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))</div>
+            <div class="container ex4">
+                <div class="item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+                <div class="item">6</div>
+                <div class="item">7</div>
+                <div class="item">8</div>
+                <div class="item">9</div>
+                <div class="item">10</div>
+            </div>
+            <pre
+                class="code">.container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }</pre>
+        </section>
+    </main>
+</body>
+
+</html>

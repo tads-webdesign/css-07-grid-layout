@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid-column - Grid Layout - Exemplos de WebDesign</title>
+    <style>
+        :root {
+            --bg: #f7f7f9;
+            --card: #fff;
+            --text: #2c3e50;
+            --muted: #6b7280;
+            --primary: #667eea;
+            --primary-2: #764ba2;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 1.6rem;
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+        }
+
+        section h2 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .badge {
+            color: var(--muted);
+            font-size: .75rem;
+            letter-spacing: .5px;
+            margin-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            background: #fafafa;
+            border: 1px dashed var(--border);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            text-align: center;
+            padding: 14px 8px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Exemplo 1: item ocupando colunas 1 a 3 */
+        .ex1 .item-destaque {
+            grid-column: 1 / 3;
+            background: #ff6b6b;
+        }
+
+        /* Exemplo 2: usando span 2 a partir da posição inicial */
+        .ex2 .item-span {
+            grid-column: span 2;
+            background: #ffb347;
+        }
+
+        /* Exemplo 3: item ocupando toda a largura */
+        .ex3 .item-full {
+            grid-column: 1 / -1;
+            background: #51cf66;
+        }
+
+        /* Exemplo 4: exemplo completo (item 2 ocupa 2/4) */
+        .ex4 .item-2 {
+            grid-column: 2 / 4;
+            background: #845ef7;
+        }
+
+        .code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: .75rem;
+            background: #f3f4f6;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        footer.page-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: .7rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>grid-column - Grid Layout - Exemplos de WebDesign</h1>
+        <p class="lead">Demonstração das variações de posicionamento horizontal de itens.</p>
+    </header>
+
+    <section>
+        <h2>Exemplo 1: Item ocupando 2 colunas específicas (1 / 3)</h2>
+        <div class="badge">grid-column: 1 / 3;</div>
+        <div class="grid ex1">
+            <div class="item item-destaque">Destaque</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+        </div>
+        <pre class="code">.item-destaque { grid-column: 1 / 3; }</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 2: Usando span (span 2)</h2>
+        <div class="badge">grid-column: span 2;</div>
+        <div class="grid ex2">
+            <div class="item">1</div>
+            <div class="item item-span">Span 2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+        <pre class="code">.item-span { grid-column: span 2; }</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 3: Item ocupando toda a largura (1 / -1)</h2>
+        <div class="badge">grid-column: 1 / -1;</div>
+        <div class="grid ex3">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item-full item">Full width</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+        <pre class="code">.item-full { grid-column: 1 / -1; }</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 4: Exemplo completo (item-2 em 2 / 4)</h2>
+        <div class="badge">grid-column: 2 / 4;</div>
+        <div class="grid ex4">
+            <div class="item">1</div>
+            <div class="item item-2">Item 2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+        </div>
+        <pre class="code">.item-2 { grid-column: 2 / 4; }</pre>
+    </section>
+
+</body>
+
+</html>

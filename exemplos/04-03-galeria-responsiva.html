@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsivo - Galeria Automática - Grid Layout - Exemplos de WebDesign</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 26px 20px;
+            text-align: center;
+            background: #1f2937;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+            font-size: 1.7rem;
+        }
+
+        header p {
+            margin: 0;
+            opacity: .85;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .item {
+            position: relative;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .06);
+            transition: .35s box-shadow, .35s transform;
+        }
+
+        .item:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+            transform: translateY(-6px);
+        }
+
+        .thumb {
+            height: 160px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .5px;
+        }
+
+        .content {
+            padding: 14px 16px 46px;
+        }
+
+        .content h2 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        .content p {
+            margin: 0;
+            font-size: .75rem;
+            line-height: 1.4;
+            color: #4b5563;
+        }
+
+        .tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #eef2ff;
+            color: #374151;
+            padding: 6px 10px;
+            font-size: .65rem;
+            font-weight: 600;
+            border-radius: 20px;
+            letter-spacing: .5px;
+        }
+
+        /* Breakpoint pequeno para telas muito estreitas */
+        @media (max-width:600px) {
+            .galeria {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .thumb {
+                height: 140px;
+            }
+        }
+
+        /* Ajustes para telas grandes */
+        @media (min-width:1200px) {
+            .galeria {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+            }
+
+            .thumb {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Galeria Responsiva Automática - Grid Layout - Exemplos de WebDesign</h1>
+        <p>Exemplo 3 — repeat(auto-fill, minmax(...)) + ajustes por breakpoint.</p>
+    </header>
+    <main class="galeria">
+        <!-- 12 itens para demonstrar preenchimento automático -->
+        <article class="item">
+            <div class="thumb">IMG 1</div>
+            <div class="content">
+                <h2>Item 1</h2>
+                <p>Renderização automática de colunas.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 2</div>
+            <div class="content">
+                <h2>Item 2</h2>
+                <p>Min 250px (ou 300px >=1200px).</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 3</div>
+            <div class="content">
+                <h2>Item 3</h2>
+                <p>Layout fluido em diferentes larguras.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 4</div>
+            <div class="content">
+                <h2>Item 4</h2>
+                <p>Sem media query para quantidade precisa.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 5</div>
+            <div class="content">
+                <h2>Item 5</h2>
+                <p>Espaçamento variável por breakpoint.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 6</div>
+            <div class="content">
+                <h2>Item 6</h2>
+                <p>Cards adaptam largura mínima.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 7</div>
+            <div class="content">
+                <h2>Item 7</h2>
+                <p>Organização sem JavaScript.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 8</div>
+            <div class="content">
+                <h2>Item 8</h2>
+                <p>CSS puro para grid adaptável.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 9</div>
+            <div class="content">
+                <h2>Item 9</h2>
+                <p>repeat(auto-fill, minmax()) é poderoso.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 10</div>
+            <div class="content">
+                <h2>Item 10</h2>
+                <p>Layout consistente e elegante.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 11</div>
+            <div class="content">
+                <h2>Item 11</h2>
+                <p>Escala para muitas colunas.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+        <article class="item">
+            <div class="thumb">IMG 12</div>
+            <div class="content">
+                <h2>Item 12</h2>
+                <p>Último item demonstrativo.</p>
+            </div><span class="tag">AUTO</span>
+        </article>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid-area - Grid Layout - Exemplos de WebDesign</title>
+    <style>
+        :root {
+            --bg: #f7f7f9;
+            --card: #fff;
+            --text: #2c3e50;
+            --muted: #6b7280;
+            --primary: #667eea;
+            --primary-2: #764ba2;
+            --border: #e5e7eb;
+            --accent: #ff6b6b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 1.6rem;
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+        }
+
+        section h2 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .badge {
+            color: var(--muted);
+            font-size: .75rem;
+            letter-spacing: .5px;
+            margin-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 80px);
+            gap: 8px;
+            background: #fafafa;
+            border: 1px dashed var(--border);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .area-expand {
+            grid-area: 1 / 1 / 3 / 3;
+            background: var(--accent);
+        }
+
+        /* Exemplo 2: layout com áreas nomeadas */
+        .layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: 80px 1fr 60px;
+            grid-template-areas: "header header header" "sidebar content aside" "footer footer footer";
+            gap: 10px;
+            background: #fafafa;
+            border: 1px dashed var(--border);
+            padding: 12px;
+            border-radius: 8px;
+            min-height: 320px;
+        }
+
+        .header {
+            grid-area: header;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        .aside {
+            grid-area: aside;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        .box {
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Exemplo 3: card com áreas nomeadas */
+        .card {
+            width: 100%;
+            max-width: 480px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: "imagem titulo" "imagem descricao" "imagem botao";
+            gap: 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
+        }
+
+        .card-imagem {
+            grid-area: imagem;
+            background: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .card-titulo {
+            grid-area: titulo;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .card-descricao {
+            grid-area: descricao;
+            font-size: .85rem;
+            line-height: 1.4;
+            color: #444;
+        }
+
+        .card-botao {
+            grid-area: botao;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: .8rem;
+            font-weight: 600;
+            transition: .3s background;
+        }
+
+        .btn:hover {
+            background: var(--primary-2);
+        }
+
+        .code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: .75rem;
+            background: #f3f4f6;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        footer.page-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: .7rem;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>grid-area - Grid Layout - Exemplos de WebDesign</h1>
+        <p class="lead">Posicionamento com shorthand e áreas nomeadas para layouts e componentes.</p>
+    </header>
+
+    <section>
+        <h2>Exemplo 1: Shorthand grid-area (1 / 1 / 3 / 3)</h2>
+        <div class="badge">grid-area: row-start / column-start / row-end / column-end</div>
+        <div class="grid">
+            <div class="item area-expand">1 / 1 / 3 / 3</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+            <div class="item">D</div>
+            <div class="item">E</div>
+            <div class="item">F</div>
+            <div class="item">G</div>
+            <div class="item">H</div>
+            <div class="item">I</div>
+            <div class="item">J</div>
+            <div class="item">K</div>
+            <div class="item">L</div>
+            <div class="item">M</div>
+            <div class="item">N</div>
+            <div class="item">O</div>
+            <div class="item">P</div>
+        </div>
+        <pre class="code">.item-destaque { grid-area: 1 / 1 / 3 / 3; }</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 2: Layout com áreas nomeadas</h2>
+        <div class="badge">grid-template-areas + grid-area</div>
+        <div class="layout">
+            <div class="box header">Header</div>
+            <div class="box sidebar">Sidebar<br /><small style="font-weight:400; opacity:.85;">Navegação /
+                    filtros</small></div>
+            <div class="box content">Content<br /><small style="font-weight:400; opacity:.85;">Área principal</small>
+            </div>
+            <div class="box aside">Aside<br /><small style="font-weight:400; opacity:.85;">Extras</small></div>
+            <div class="box footer">Footer</div>
+        </div>
+        <pre class="code">.layout {
+  display:grid;
+  grid-template-columns:200px 1fr 200px;
+  grid-template-rows:80px 1fr 60px;
+  grid-template-areas:
+    "header header header"
+    "sidebar content aside"
+    "footer footer footer";
+}
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.aside   { grid-area: aside; }
+.footer  { grid-area: footer; }</pre>
+    </section>
+
+    <section>
+        <h2>Exemplo 3: Card com áreas nomeadas</h2>
+        <div class="badge">Componente reusável usando grid-template-areas</div>
+        <div class="card">
+            <div class="card-imagem">IMG</div>
+            <div class="card-titulo">Título do Card</div>
+            <div class="card-descricao">Descrição breve do conteúdo do card demonstrando organização com áreas nomeadas,
+                fácil de rearranjar.</div>
+            <div class="card-botao"><a class="btn" href="#">Ação</a></div>
+        </div>
+        <pre class="code">.card {
+  display:grid;
+  grid-template-columns:120px 1fr;
+  grid-template-rows:auto 1fr auto;
+  grid-template-areas:
+    "imagem titulo"
+    "imagem descricao"
+    "imagem botao";
+}
+.card-imagem    { grid-area: imagem; }
+.card-titulo    { grid-area: titulo; }
+.card-descricao { grid-area: descricao; }
+.card-botao     { grid-area: botao; }</pre>
+    </section>
+
+    <footer class="page-footer">CSS Grid exemplos — grid-area</footer>
+</body>
+
+</html>

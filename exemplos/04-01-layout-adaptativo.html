@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsivo - Layout Adaptativo - Grid Layout - Exemplos de WebDesign</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+            background: #f5f7fa;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 24px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0 0 6px;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            margin: 0;
+            opacity: .9;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 22px 18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .06);
+            transition: .3s box-shadow, .3s transform;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+            transform: translateY(-4px);
+        }
+
+        .card h2 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+            color: #374151;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: .85rem;
+            line-height: 1.4;
+            color: #4b5563;
+        }
+
+        /* Tablets */
+        @media (min-width:768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                padding: 20px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width:1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                padding: 30px;
+            }
+        }
+
+        /* Desktop grande */
+        @media (min-width:1440px) {
+            .container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Layout Adaptativo - Grid Layout - Exemplos de WebDesign</h1>
+        <p>Exemplo 1 — Mobile-first: 1 → 2 → 3 → 4 colunas.</p>
+    </header>
+    <main class="container">
+        <article class="card">
+            <h2>Bloco 1</h2>
+            <p>Conteúdo demonstrativo simples.</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 2</h2>
+            <p>O grid se expande em breakpoints.</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 3</h2>
+            <p>Colunas iguais usando repeat().</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 4</h2>
+            <p>Adaptação automática.</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 5</h2>
+            <p>Mais elementos para testar fluxo.</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 6</h2>
+            <p>Responsividade simples e direta.</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 7</h2>
+            <p>Observe gaps variando.</p>
+        </article>
+        <article class="card">
+            <h2>Bloco 8</h2>
+            <p>Breakpoint extra em 1440px.</p>
+        </article>
+    </main>
+</body>
+
+</html>
