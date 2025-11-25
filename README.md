@@ -2,28 +2,20 @@
 
 ## 📚 Sumário
 
-1. [Introdução ao CSS Grid](#introdução-ao-css-grid)
-   - [O que é CSS Grid?](#o-que-é-css-grid)
-   - [Quando usar CSS Grid?](#quando-usar-css-grid)
-2. [Grid Container](#grid-container)
-   - [display: grid](#display-grid)
-   - [grid-template-columns](#grid-template-columns)
-   - [grid-template-rows](#grid-template-rows)
-   - [gap](#gap)
-3. [Grid Items](#grid-items)
-   - [grid-column](#grid-column)
-   - [grid-row](#grid-row)
-   - [grid-area](#grid-area)
-4. [Design Responsivo com Media Queries](#design-responsivo-com-media-queries)
+1. [Introdução ao CSS Grid](#1-introdução-ao-css-grid)
+2. [Grid Container](#2-grid-container)
+3. [Grid Items](#3-grid-items)
+4. [Design Responsivo com Media Queries](#4-design-responsivo-com-media-queries)
 5. [Exemplo Completo](#exemplo-completo)
 
 ---
 
-## Introdução ao CSS Grid
+## 1. Introdução ao CSS Grid
 
-### O que é CSS Grid?
+### 1.1. O que é CSS Grid?
 
-CSS Grid Layout é um sistema de layout bidimensional que permite criar layouts complexos de forma mais eficiente e com controle total sobre linhas e colunas. É uma das ferramentas mais poderosas do CSS3 para criar designs modernos e responsivos.
+CSS Grid Layout é um sistema de layout bidimensional que permite criar layouts complexos de forma mais eficiente e com controle total sobre linhas e colunas. 
+É uma das ferramentas mais poderosas do CSS3 para criar designs modernos e responsivos.
 
 **Características principais:**
 - Layout bidimensional (linhas e colunas simultaneamente)
@@ -32,7 +24,7 @@ CSS Grid Layout é um sistema de layout bidimensional que permite criar layouts 
 - Responsividade facilitada
 - Redução de código HTML e CSS
 
-### Quando usar CSS Grid?
+### 1.2. Quando usar CSS Grid?
 
 Use CSS Grid quando você precisar:
 
@@ -51,11 +43,12 @@ Use CSS Grid quando você precisar:
 
 ---
 
-## Grid Container
+## 2. Grid Container
 
-O Grid Container é o elemento pai que contém todos os grid items. Para transformar um elemento em grid container, usamos a propriedade `display: grid`.
+O Grid Container é o elemento pai que contém todos os grid items. 
+Para transformar um elemento em grid container, usamos a propriedade `display: grid`.
 
-### display: grid
+### 2.1. display: grid
 
 A propriedade `display: grid` ativa o CSS Grid em um elemento.
 
@@ -67,6 +60,8 @@ A propriedade `display: grid` ativa o CSS Grid em um elemento.
 ```
 
 **Exemplo prático:**
+
+[código exemplo](/exemplos/02-01-display-grid.html)
 
 HTML:
 ```html
@@ -98,7 +93,7 @@ CSS:
 
 ---
 
-### grid-template-columns
+### 2.2. grid-template-columns
 
 Define o número e o tamanho das colunas no grid.
 
@@ -117,6 +112,8 @@ Define o número e o tamanho das colunas no grid.
 - `minmax(min, max)` - valor mínimo e máximo
 
 **Exemplos:**
+
+[código exemplo](/exemplos/02-02-grid-template-columns.html)
 
 **Exemplo 1: Três colunas iguais**
 ```css
@@ -159,7 +156,7 @@ Define o número e o tamanho das colunas no grid.
 
 ---
 
-### grid-template-rows
+### 2.3. grid-template-rows
 
 Define o número e o tamanho das linhas no grid.
 
@@ -169,6 +166,10 @@ Define o número e o tamanho das linhas no grid.
   grid-template-rows: valor1 valor2 valor3 ...;
 }
 ```
+
+**Exemplos**
+
+[código exemplo](/exemplos/02-03-grid-template-rows.html)
 
 **Exemplo 1: Três linhas com tamanhos diferentes**
 ```css
@@ -202,7 +203,7 @@ Define o número e o tamanho das linhas no grid.
 
 ---
 
-### gap
+### 2.4. gap
 
 Define o espaçamento entre linhas e colunas do grid.
 
@@ -217,6 +218,9 @@ Define o espaçamento entre linhas e colunas do grid.
   column-gap: valor;
 }
 ```
+**Exemplos**
+
+[Código exemplo](/exemplos/02-04-gap.html)
 
 **Exemplo 1: Gap uniforme**
 ```css
@@ -252,11 +256,12 @@ Define o espaçamento entre linhas e colunas do grid.
 
 ---
 
-## Grid Items
+## 3. Grid Items
 
-Grid Items são os elementos filhos diretos de um Grid Container. Podemos controlar sua posição e tamanho com propriedades específicas.
+Grid Items são os elementos filhos diretos de um Grid Container. 
+Podemos controlar sua posição e tamanho com propriedades específicas.
 
-### grid-column
+### 3.1. grid-column
 
 Define em quais colunas o item deve se posicionar.
 
@@ -276,6 +281,11 @@ Define em quais colunas o item deve se posicionar.
 - As linhas da grade são numeradas começando em 1
 - Cada coluna tem uma linha de início e uma de fim
 - Você pode contar do fim usando números negativos
+
+
+**Exemplos**
+
+[Código exemplo](/exemplos/03-01-grid-column.html)
 
 **Exemplo 1: Item ocupando 2 colunas**
 ```css
@@ -332,7 +342,7 @@ Define em quais colunas o item deve se posicionar.
 
 ---
 
-### grid-row
+### 3.2. grid-row
 
 Define em quais linhas o item deve se posicionar.
 
@@ -347,6 +357,10 @@ Define em quais linhas o item deve se posicionar.
   grid-row: início / span quantidade;
 }
 ```
+
+**Exemplos**
+
+[Código exemplo](/exemplos/03-02-grid-row.html)
 
 **Exemplo 1: Item ocupando 2 linhas**
 ```css
@@ -383,7 +397,7 @@ Define em quais linhas o item deve se posicionar.
 
 ---
 
-### grid-area
+### 3.3. grid-area
 
 Define a área do grid que o item deve ocupar. Pode ser usado de duas formas:
 
@@ -400,6 +414,9 @@ Define a área do grid que o item deve ocupar. Pode ser usado de duas formas:
   grid-area: nome-da-area;
 }
 ```
+**Exemplos**
+
+[Código exemplo](/exemplos/03-03-grid-area.html)
 
 **Exemplo 1: Posicionamento com grid-area**
 ```css
@@ -453,11 +470,11 @@ Define a área do grid que o item deve ocupar. Pode ser usado de duas formas:
 
 ---
 
-## Design Responsivo com Media Queries
+## 4. Design Responsivo com Media Queries
 
 Media queries permitem adaptar o layout do grid para diferentes tamanhos de tela.
 
-### Estratégia Mobile-First
+### 4.1. Estratégia Mobile-First
 
 É recomendado começar com o design mobile e adicionar complexidade para telas maiores.
 
@@ -607,7 +624,7 @@ Media queries permitem adaptar o layout do grid para diferentes tamanhos de tela
 }
 ```
 
-### Dicas para Responsividade
+### 4.2. Dicas para Responsividade
 
 1. **Use unidades relativas:** `fr`, `%`, `minmax()`, `auto-fit`, `auto-fill`
 2. **Evite larguras fixas em pixels** quando possível
@@ -623,6 +640,8 @@ Vamos criar um layout completo de um site com header, navegação, conteúdo pri
 
 ### HTML Completo
 
+[código html](/index.html)
+
 ```html
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -630,7 +649,7 @@ Vamos criar um layout completo de um site com header, navegação, conteúdo pri
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Grid - Exemplo Completo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/grid-exemplo.css">
 </head>
 <body>
   
@@ -728,6 +747,8 @@ Vamos criar um layout completo de um site com header, navegação, conteúdo pri
 ```
 
 ### CSS Completo
+
+[código css](/css/grid-exemplo.css)
 
 ```css
 /* Reset básico */
@@ -1101,8 +1122,8 @@ Este exemplo demonstra:
 
 ### Como Testar
 
-1. Copie o HTML para um arquivo `index.html`
-2. Copie o CSS para um arquivo `style.css`
+1. Copie o HTML para um arquivo `/index.html`
+2. Copie o CSS para um arquivo `/css/grid-exemplo.css`
 3. Abra o arquivo HTML no navegador
 4. Redimensione a janela para ver a responsividade
 5. Use o DevTools (F12) para testar diferentes dispositivos
